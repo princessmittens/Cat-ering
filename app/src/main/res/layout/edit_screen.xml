@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.achristians.asgn4.EditScreen">
+
+    <TextView
+        android:id="@+id/lblName"
+        android:layout_marginTop="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textSize="15sp"
+        android:layout_marginStart="10sp"
+        />
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp"
+        android:inputType="textPersonName"
+        android:labelFor="@+id/name"
+        android:layout_margin="10sp"/>
+
+    <TextView
+        android:id="@+id/lblDescription"
+        android:layout_marginTop="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/description"
+        android:textSize="15sp"
+        android:layout_marginStart="10sp"
+        />
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp"
+        android:inputType="textPersonName"
+        android:labelFor="@+id/description"
+        android:layout_margin="10sp"/>
+    <TextView
+        android:id="@+id/lblIngredients"
+        android:layout_marginTop="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ingredients"
+        android:textSize="15sp"
+        android:layout_marginStart="10sp"
+        />
+    <EditText
+        android:id="@+id/ingredients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp"
+        android:labelFor="@+id/ingredients"
+        android:inputType="textPersonName"
+        android:layout_margin="10sp"/>
+
+    <TextView
+        android:id="@+id/lblUrl"
+        android:layout_marginTop="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/website"
+        android:textSize="15sp"
+        android:layout_marginStart="10sp"
+        />
+    <EditText
+        android:id="@+id/url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp"
+        android:labelFor="@+id/url"
+        android:inputType="textUri"
+        android:layout_margin="10sp"/>
+
+    <RatingBar
+        android:id="@+id/editRB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numStars="4"
+        android:center_horizontal="true"
+        />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Save"
+
+        />
+
+</LinearLayout>

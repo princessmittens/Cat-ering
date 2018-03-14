@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Asgn4</string>
+    <string name="name">Name: </string>
+    <string name="description">Enter a description: </string>
+    <string name="ingredients">List the ingredients below: </string>
+    <string name="website">Add a website: </string>
+</resources>

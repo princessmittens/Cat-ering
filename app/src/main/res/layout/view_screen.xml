@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.achristians.asgn4.ViewScreen">
+
+    <TextView
+        android:id="@+id/lblName"
+        android:layout_marginTop="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textSize="15sp"
+        android:layout_marginStart="10sp"
+        />
+    <TextView
+        android:id="@+id/viewName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp"
+        android:layout_margin="10sp"/>
+
+    <TextView
+        android:id="@+id/lblDescription"
+        android:layout_marginTop="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/description"
+        android:textSize="15sp"
+        android:layout_marginStart="10sp"
+        />
+    <TextView
+        android:id="@+id/viewDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp"
+        android:layout_margin="10sp"/>
+    <TextView
+        android:id="@+id/lblIngredients"
+        android:layout_marginTop="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ingredients"
+        android:textSize="15sp"
+        android:layout_marginStart="10sp"
+        />
+    <TextView
+        android:id="@+id/viewIngredients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp"
+        android:layout_margin="10sp"/>
+
+    <TextView
+        android:id="@+id/lblUrl"
+        android:layout_marginTop="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/website"
+        android:textSize="15sp"
+        android:layout_marginStart="10sp"
+        />
+    <TextView
+        android:id="@+id/viewUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp"
+        android:layout_margin="10sp"/>
+
+    <RatingBar
+        android:id="@+id/viewRB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:center_horizontal="true"
+        android:numStars="4"/>
+
+</LinearLayout>
