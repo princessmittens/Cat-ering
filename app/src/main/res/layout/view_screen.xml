@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.achristians.asgn4.ViewScreen">
+    tools:context="com.example.achristians.asgn4.com.example.achristians.recipe_app.ViewScreen">
 
     <TextView
         android:id="@+id/lblName"

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "28370777553",
+    "firebase_url": "https://recipeapp-rightmeow.firebaseio.com",
+    "project_id": "recipeapp-rightmeow",
+    "storage_bucket": "recipeapp-rightmeow.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28370777553:android:1397cc5f5a2e1508",
+        "android_client_info": {
+          "package_name": "com.example.achristians.recipe_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28370777553-u9bodlabu2mpop7mfism71aolump9vmh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfFLH4YuV0VvfX7o8H4gEmCJ_tTL4SqCY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

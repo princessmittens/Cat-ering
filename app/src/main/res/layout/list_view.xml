@@ -21,26 +21,13 @@
         android:text="test"
         android:layout_weight="1"/>
 
-    <!--<Button-->
-        <!--android:id="@+id/btnLapReset"-->
-        <!--android:layout_width="50dp"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:text="LAP"-->
-        <!--android:layout_weight="1"-->
-        <!--android:layout_alignParentStart="true"/>-->
-    <!--</RelativeLayout>-->
+//Figure out later
+    <!--<RatingBar-->
+        <!--android:id="@+id/listRB"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1" />-->
 
-    <RatingBar
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
 
-    <TextView
-    android:id="@+id/dateAdded"
-        android:text="test1"
-    android:layout_width="0dp"
-    android:layout_height="match_parent"
-    android:padding="5sp"
-    android:layout_weight="1" />
 
 </LinearLayout>

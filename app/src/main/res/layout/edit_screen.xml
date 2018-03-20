@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.achristians.asgn4.EditScreen">
+    tools:context="com.example.achristians.asgn4.com.example.achristians.recipe_app.EditScreen">
 
     <TextView
         android:id="@+id/lblName"
@@ -90,7 +90,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:numStars="4"
-        android:center_horizontal="true"
         />
 
     <Button

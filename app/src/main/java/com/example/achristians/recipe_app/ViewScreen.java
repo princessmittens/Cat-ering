@@ -1,8 +1,7 @@
-package com.example.achristians.asgn4;
+package com.example.achristians.recipe_app;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.EventLogTags;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
