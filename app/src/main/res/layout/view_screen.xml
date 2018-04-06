@@ -81,7 +81,6 @@
         android:id="@+id/viewRB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:center_horizontal="true"
         android:numStars="4"/>
 
 </LinearLayout>

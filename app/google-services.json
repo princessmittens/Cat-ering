@@ -1,35 +1,27 @@
 {
   "project_info": {
-    "project_number": "480323640366",
-    "firebase_url": "https://recipeapp-9136c.firebaseio.com",
-    "project_id": "recipeapp-9136c",
-    "storage_bucket": "recipeapp-9136c.appspot.com"
+    "project_number": "28370777553",
+    "firebase_url": "https://recipeapp-rightmeow.firebaseio.com",
+    "project_id": "recipeapp-rightmeow",
+    "storage_bucket": "recipeapp-rightmeow.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:480323640366:android:27a7232e1a43d92c",
+        "mobilesdk_app_id": "1:28370777553:android:1397cc5f5a2e1508",
         "android_client_info": {
           "package_name": "com.example.achristians.asgn4"
         }
       },
       "oauth_client": [
         {
-          "client_id": "480323640366-4008l5dhd9igmf5kaafdj2jai74jem2m.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.achristians.asgn4",
-            "certificate_hash": "c8802f5c28eafaca2c148f0439104ef361572b67"
-          }
-        },
-        {
-          "client_id": "480323640366-ia8rrcre75bguhovcflic2nlm7mr44r8.apps.googleusercontent.com",
+          "client_id": "28370777553-u9bodlabu2mpop7mfism71aolump9vmh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAl8gTEdnXwzexaY8YsHYe2koyfAj9fbaA"
+          "current_key": "AIzaSyBfFLH4YuV0VvfX7o8H4gEmCJ_tTL4SqCY"
         }
       ],
       "services": {
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "480323640366-ia8rrcre75bguhovcflic2nlm7mr44r8.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2

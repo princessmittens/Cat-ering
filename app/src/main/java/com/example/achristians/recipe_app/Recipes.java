@@ -8,15 +8,13 @@ import java.util.ArrayList;
 class Recipes {
     ArrayList recipesList = new ArrayList();
     String name;
-    RatingBar ratingStar;
-    ArrayList<String> list = new ArrayList<String>();
+//    RatingBar ratingStar;
+    ArrayList<String> list = new ArrayList<>();
 
-    public Recipes() {
-    }
     public Recipes(String name, ArrayList<String> list) {
         ArrayList recipesList = new ArrayList();
         this.name = name;
-        this.ratingStar = ratingStar;
+//        this.ratingStar = ratingStar;
         this.list = list;
     }
 

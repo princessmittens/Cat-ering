@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
 
+import com.example.achristians.asgn4.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -19,11 +20,15 @@ import java.util.Map;
 public class EditScreen extends AppCompatActivity {
 
 
-    final FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference ref = database.getReference("server/saving-data/");
-    DatabaseReference rec = ref.child("recipe");
+  //  DatabaseReference database;
+    //database = FirebaseDatabase.getInstance().getReference("data");
+//    DatabaseReference ref = database.getReference("recipe");
+//    DatabaseReference rec = ref.child("recipe");
 
+//    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+//    DatabaseReference ref = database.getReference("server/saving-data/fireblog");
 
+    private DatabaseReference mDatabase;
 
     //    DatabaseReference ref = database.getReference("server/saving-data/fireblog");
     private EditText name, ingredients, description, url;
@@ -31,8 +36,12 @@ public class EditScreen extends AppCompatActivity {
     private RatingBar editRB;
     private String date = "25 Jan 1987";
 
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+    //   https://stackoverflow.com/questions/5637382/referencing-a-view-in-another-xml-file
+        setContentView(R.layout.edit_screen);
 
         name = findViewById(R.id.name);
         ingredients = findViewById(R.id.ingredients);
@@ -40,6 +49,7 @@ public class EditScreen extends AppCompatActivity {
         url = findViewById(R.id.url);
         save = findViewById(R.id.save);
         editRB = findViewById(R.id.editRB);
+
 //        editRB.setOnRatingBarChangeListener(new View.OnRatingBarChangeListener() {
 //            @Override
 //            public void onRatingChanged(RatingBar ratingBar, float rating){
@@ -55,11 +65,10 @@ public class EditScreen extends AppCompatActivity {
                 list.add(ingredients.getText().toString());
                 list.add(url.getText().toString());
                 //list.add(editRB.getRating().toString());
-                // populate list view
-                Map<String, Recipes> recipe = new HashMap<>();
-                recipe.put(name.getText().toString(), new Recipes(name.getText().toString(), list));
 
-                ref.setValueAsync(recipe);
+                mDatabase = FirebaseDatabase.getInstance().getReference();
+                Recipes recipe = new Recipes(name.getText().toString(), list);
+                mDatabase.child((name.getText().toString())).child(name.getText().toString()).setValue(recipe);
 
 
                 Intent i = new Intent(EditScreen.this, MainActivity.class);

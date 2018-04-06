@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.example.achristians.asgn4.R;
+
 import java.util.ArrayList;
 
 
