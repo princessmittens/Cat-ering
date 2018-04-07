@@ -67,10 +67,6 @@ public class MainActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for (DataSnapshot dsp : dataSnapshot.getChildren()) {
                             dsp.getValue();
-                            displayRecipe.add(dsp.getKey());
-                            String name = dsp.getKey();
-                            System.out.println(dsp.getValue());
-
                             //  https://stackoverflow.com/questions/44285521/how-to-retrieve-data-from-firebase-database-which-is-having-nested-array-and-obj
                             GenericTypeIndicator<ArrayList<String>> stringList = new GenericTypeIndicator<ArrayList<String>>() {
                             };
@@ -83,10 +79,12 @@ public class MainActivity extends AppCompatActivity {
                         adapter.notifyDataSetChanged();
                     }
 
+
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
 
                     }
+
                 });
 
         //       ListAdapter adapter = new ListAdapter(this, R.layout.list_view);

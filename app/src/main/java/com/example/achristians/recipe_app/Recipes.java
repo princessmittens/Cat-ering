@@ -33,6 +33,10 @@ class Recipes {
     public String getName() {
         return list.get(0);
     }
+
+//    public void deleteRecipe(Recipes name) {
+//         list.get(0);
+//    }
     public void setList(ArrayList<String> list) {
         this.list=list;
     }
