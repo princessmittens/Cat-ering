@@ -7,20 +7,19 @@ import java.util.ArrayList;
 
 class Recipes {
     ArrayList recipesList = new ArrayList();
-    String name;
+ //   String name;
 //    RatingBar ratingStar;
     ArrayList<String> list = new ArrayList<>();
 
     public Recipes(ArrayList<String> list) {
         ArrayList recipesList = new ArrayList();
-        this.name = name;
 //        this.ratingStar = ratingStar;
         this.list = list;
     }
-
-    public String getName() {
-        return name;
-    }
+//
+//    public String getName() {
+//        return name;
+//    }
 
 //    public Float getRatingRecipe() {
 //        Float k = ratingStar;
@@ -31,6 +30,9 @@ class Recipes {
         return list;
     }
 
+    public String getName() {
+        return list.get(0);
+    }
     public void setList(ArrayList<String> list) {
         this.list=list;
     }

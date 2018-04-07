@@ -52,6 +52,7 @@ public class EditScreen extends AppCompatActivity {
             public void onClick(View view) {
                 ArrayList<String> list = new ArrayList<>();
                 // add all data from edit text
+                list.add(name.getText().toString());
                 list.add(description.getText().toString());
                 list.add(ingredients.getText().toString());
                 list.add(url.getText().toString());
@@ -60,7 +61,6 @@ public class EditScreen extends AppCompatActivity {
                 mDatabase = FirebaseDatabase.getInstance().getReference();
                 Recipes recipe = new Recipes(list);
                 mDatabase.child(name.getText().toString()).setValue(recipe);
-
 
                 Intent i = new Intent(EditScreen.this, MainActivity.class);
                 startActivity(i);

@@ -1,13 +1,17 @@
 package com.example.achristians.recipe_app;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.achristians.asgn4.R;
 import com.google.firebase.FirebaseApp;
@@ -16,18 +20,21 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    public ArrayList recipesList = new ArrayList();
     private Button add;
-    private ListView listview;
-//    ArrayList recipeList = new ArrayList<>();
-//    Recipes recipelist;
-FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
+    ArrayList<String> list = new ArrayList<>();
+    ArrayList<String> displayRecipe = new ArrayList<>();
+    ArrayList recipesList = new ArrayList();
+    private ListAdapter adapter;
+
+    FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference dref = mFirebaseDatabase.getReference();
 
     @Override
@@ -35,8 +42,11 @@ FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listview = (ListView)findViewById(R.id.list_view);
+        ListView recList = (ListView) findViewById(R.id.list_view);
         add = findViewById(R.id.add);
+
+        adapter = new ListAdapter(this, R.layout.list_view, recipesList);
+        recList.setAdapter(adapter);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,45 +66,30 @@ FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for (DataSnapshot dsp : dataSnapshot.getChildren()) {
-                            //Get map of users in datasnapshot
-                               dsp.getValue();
-                                System.out.println(dsp.getValue());
-                            System.out.println("DSP " + dsp.getKey());
-                      //      System.out.println("DSP " + dsp.child("list").getValue());
+                            dsp.getValue();
+                            displayRecipe.add(dsp.getKey());
+                            String name = dsp.getKey();
+                            System.out.println(dsp.getValue());
+
+                            //  https://stackoverflow.com/questions/44285521/how-to-retrieve-data-from-firebase-database-which-is-having-nested-array-and-obj
+                            GenericTypeIndicator<ArrayList<String>> stringList = new GenericTypeIndicator<ArrayList<String>>() {
+                            };
+                           list = dsp.child("list").getValue(stringList);
+                           recipesList.add(new Recipes(list));
+                            System.out.println("list: " + list);
+
+                        //    System.out.println("DSP " + dsp.child("list").getValue());
                         }
+                        adapter.notifyDataSetChanged();
                     }
-          //          listview.setAdapter(mAdapter);
+
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
 
                     }
                 });
 
-        /**
-         * List view screen
-         * make sure that u
-         *
-         * sers can click on recipe
-         */
-        // be able to edit list view (delete)
-        //search array list Recipe
-        //delete marked recipes
-        //https://stackoverflow.com/questions/1102050/how-to-navigate-from-one-screen-to-another-screen
-         //Intent i = new Intent(y.this, Activity.class);
-        // startActivity(i);
-        /**
-         * show screen
-         */
-//        ref.addChildEventListener(new ChildEventListener() {
-////            @Override
-////            @Override
-////            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-////                Post newPost = dataSnapshot.getValue(Post.class);
-////
-////            }
-//
-
- //       ListAdapter adapter = new ListAdapter(this, R.layout.list_view);
+        //       ListAdapter adapter = new ListAdapter(this, R.layout.list_view);
 //        listview.setAdapter(adapter);
     }
-}
+};
