@@ -3,6 +3,7 @@ package com.example.achristians.recipe_app;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListAdapter;
@@ -15,22 +16,26 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     public ArrayList recipesList = new ArrayList();
     private Button add;
     private ListView listview;
-    final FirebaseDatabase database = FirebaseDatabase.getInstance();
-//    DatabaseReference ref = database.getReference("hello");
+//    ArrayList recipeList = new ArrayList<>();
+//    Recipes recipelist;
+FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference dref = mFirebaseDatabase.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listview = findViewById(R.id.list_view);
+        listview = (ListView)findViewById(R.id.list_view);
         add = findViewById(R.id.add);
 
         add.setOnClickListener(new View.OnClickListener() {
@@ -38,12 +43,33 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //https://stackoverflow.com/questions/2736389/how-to-pass-an-object-from-one-activity-to-another-on-android
                 Intent i = new Intent(MainActivity.this, EditScreen.class);
-  //              i.putExtra("key", recipesList);
                 startActivity(i);
             }
         });
-   //     ref.setValue("Hello, World!");
-      FirebaseApp.initializeApp(this);
+        FirebaseApp.initializeApp(this);
+        // There are many references because I had no idea what I was doing...
+        // https://stackoverflow.com/questions/38965731/how-to-get-all-childs-data-in-firebase-database
+        // https://stackoverflow.com/questions/42648147/populating-a-listview-with-firebase-data-in-android
+
+        dref.addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot dsp : dataSnapshot.getChildren()) {
+                            //Get map of users in datasnapshot
+                               dsp.getValue();
+                                System.out.println(dsp.getValue());
+                            System.out.println("DSP " + dsp.getKey());
+                      //      System.out.println("DSP " + dsp.child("list").getValue());
+                        }
+                    }
+          //          listview.setAdapter(mAdapter);
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
         /**
          * List view screen
          * make sure that u
@@ -67,26 +93,7 @@ public class MainActivity extends AppCompatActivity {
 ////
 ////            }
 //
-//            @Override
-//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-//
-//            }
-//
-//            @Override
-//            public void onChildRemoved(DataSnapshot dataSnapshot) {
-//
-//            }
-//
-//            @Override
-//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
+
  //       ListAdapter adapter = new ListAdapter(this, R.layout.list_view);
 //        listview.setAdapter(adapter);
     }

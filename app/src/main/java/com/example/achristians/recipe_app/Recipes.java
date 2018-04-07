@@ -11,7 +11,7 @@ class Recipes {
 //    RatingBar ratingStar;
     ArrayList<String> list = new ArrayList<>();
 
-    public Recipes(String name, ArrayList<String> list) {
+    public Recipes(ArrayList<String> list) {
         ArrayList recipesList = new ArrayList();
         this.name = name;
 //        this.ratingStar = ratingStar;

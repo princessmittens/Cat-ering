@@ -19,15 +19,6 @@ import java.util.Map;
 
 public class EditScreen extends AppCompatActivity {
 
-
-  //  DatabaseReference database;
-    //database = FirebaseDatabase.getInstance().getReference("data");
-//    DatabaseReference ref = database.getReference("recipe");
-//    DatabaseReference rec = ref.child("recipe");
-
-//    final FirebaseDatabase database = FirebaseDatabase.getInstance();
-//    DatabaseReference ref = database.getReference("server/saving-data/fireblog");
-
     private DatabaseReference mDatabase;
 
     //    DatabaseReference ref = database.getReference("server/saving-data/fireblog");
@@ -67,8 +58,8 @@ public class EditScreen extends AppCompatActivity {
                 //list.add(editRB.getRating().toString());
 
                 mDatabase = FirebaseDatabase.getInstance().getReference();
-                Recipes recipe = new Recipes(name.getText().toString(), list);
-                mDatabase.child((name.getText().toString())).child(name.getText().toString()).setValue(recipe);
+                Recipes recipe = new Recipes(list);
+                mDatabase.child(name.getText().toString()).setValue(recipe);
 
 
                 Intent i = new Intent(EditScreen.this, MainActivity.class);
