@@ -11,8 +11,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.achristians.asgn4.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,7 +28,7 @@ public class EditScreen extends AppCompatActivity {
 
     //    DatabaseReference ref = database.getReference("server/saving-data/fireblog");
     private EditText name, ingredients, description, url;
-    private Button save;
+    private Button save, delete;
     private RatingBar editRB;
     private String date = "25 Jan 1987";
     boolean editRecipe = false;
@@ -45,6 +48,7 @@ public class EditScreen extends AppCompatActivity {
         save = findViewById(R.id.save);
         editRB = findViewById(R.id.editRB);
         editName = findViewById(R.id.editName);
+        delete = findViewById(R.id.delete);
 
         Intent i= getIntent();
       Bundle bundle = i.getExtras();
@@ -60,6 +64,50 @@ public class EditScreen extends AppCompatActivity {
             editName.setVisibility(View.VISIBLE);
             editName.setText(savedRecipe.getName());
 
+        }
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        if(editRecipe == true) {
+            delete.setVisibility(View.VISIBLE);
+                       delete.setOnClickListener(new View.OnClickListener() {
+                           @Override
+                           public void onClick(View view) {
+                               mDatabase.addListenerForSingleValueEvent(
+                                       new ValueEventListener() {
+                                           @Override
+                                           public void onDataChange(DataSnapshot dataSnapshot) {
+                                               for (DataSnapshot dsp : dataSnapshot.getChildren()) {
+                                                   // dsp.getValue();
+                                                   String nameFromDB = dsp.getKey();
+                                                   if (nameFromDB.equals(savedRecipe.getName())) {
+                                                       dsp.getRef().removeValue();
+                                                       System.out.println("deleting" + nameFromDB);
+//                                            Intent edit = new Intent(getActivity(), MainActivity.class);
+//                                            startActivity(edit);
+                                                       //  adapter.clear();
+                                                       //  listRecipe.remove(number);
+                                                       Toast.makeText(getApplicationContext(),
+                                                                       "Deleting entry"
+                                                               , Toast.LENGTH_LONG)
+                                                               .show();
+                                                       Intent i = new Intent(EditScreen.this, MainActivity.class);
+                                                       startActivity(i);
+                                                   }
+                                               }
+
+                                           }
+
+                                           @Override
+                                           public void onCancelled(DatabaseError databaseError) {
+                                           }
+
+                                       });
+                           }
+
+        });
+
+        } else {
+            delete.setVisibility(View.GONE);
         }
 
 //        editRB.setOnRatingBarChangeListener(new View.OnRatingBarChangeListener() {
@@ -79,13 +127,14 @@ public class EditScreen extends AppCompatActivity {
                     list.add(description.getText().toString());
                     list.add(ingredients.getText().toString());
                     list.add(url.getText().toString());
-                    //list.add(editRB.getRating().toString());
 
-                    mDatabase = FirebaseDatabase.getInstance().getReference();
 
                     Recipes recipe = new Recipes(list);
                     mDatabase.child(name.getText().toString()).setValue(recipe);
-
+                    Toast.makeText(getApplicationContext(),
+                            "Updating entry"
+                            , Toast.LENGTH_LONG)
+                            .show();
                     Intent i = new Intent(EditScreen.this, MainActivity.class);
                     startActivity(i);
                 } else {
