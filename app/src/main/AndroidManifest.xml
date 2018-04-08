@@ -23,12 +23,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.achristians.recipe_app.MainActivity" />
         </activity>
+        <activity
+            android:name="com.example.achristians.recipe_app.ViewScreen"
+            android:parentActivityName="com.example.achristians.recipe_app.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.achristians.recipe_app.MainActivity" />
+        </activity>
         <!--<activity-->
-            <!--android:name="com.example.achristians.recipe_app.ViewScreen"-->
-            <!--android:parentActivityName="com.example.achristians.recipe_app.MainActivity" >-->
+            <!--android:name="com.example.achristians.recipe_app.EditScreen"-->
+            <!--android:parentActivityName="com.example.achristians.recipe_app.ViewScreen" >-->
             <!--<meta-data-->
                 <!--android:name="android.support.PARENT_ACTIVITY"-->
-                <!--android:value="com.example.achristians.recipe_app.MainActivity" />-->
+                <!--android:value="com.example.achristians.recipe_app.ViewScreen" />-->
         <!--</activity>-->
 
 

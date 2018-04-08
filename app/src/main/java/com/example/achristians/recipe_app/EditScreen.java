@@ -82,10 +82,6 @@ public class EditScreen extends AppCompatActivity {
                                                    if (nameFromDB.equals(savedRecipe.getName())) {
                                                        dsp.getRef().removeValue();
                                                        System.out.println("deleting" + nameFromDB);
-//                                            Intent edit = new Intent(getActivity(), MainActivity.class);
-//                                            startActivity(edit);
-                                                       //  adapter.clear();
-                                                       //  listRecipe.remove(number);
                                                        Toast.makeText(getApplicationContext(),
                                                                        "Deleting entry"
                                                                , Toast.LENGTH_LONG)

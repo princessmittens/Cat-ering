@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                         "Position :"+itemPosition+"  ListItem : " , Toast.LENGTH_LONG)
                         .show();
 
-                Intent i = new Intent(MainActivity.this, EditScreen.class);
+                Intent i = new Intent(MainActivity.this, ViewScreen.class);
            //     https://stackoverflow.com/questions/5265913/how-to-use-putextra-and-getextra-for-string-data
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("key", temp);

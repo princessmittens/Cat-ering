@@ -61,41 +61,6 @@ public class ListAdapter extends ArrayAdapter<Recipes> {
             name.setText(nameInLV);
             number = position;
 
-
-
-//            delete.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    dref.addListenerForSingleValueEvent(
-//                            new ValueEventListener() {
-//                                @Override
-//                                public void onDataChange(DataSnapshot dataSnapshot) {
-//                                    for (DataSnapshot dsp : dataSnapshot.getChildren()) {
-//                                        // dsp.getValue();
-//                                        String nameFromDB = dsp.getKey();
-//                                        if (nameFromDB.equals(nameInLV)) {
-//                                            dsp.getRef().removeValue();
-//                                            System.out.println("deleting" + nameFromDB);
-////                                            Intent edit = new Intent(getActivity(), MainActivity.class);
-////                                            startActivity(edit);
-//                                        //  adapter.clear();
-//                                            listRecipe.remove(number);
-//                                        notifyDataSetChanged();
-//                                        }
-//                                    }
-//
-//                                }
-//
-//                                @Override
-//                                public void onCancelled(DatabaseError databaseError) {
-//
-//                                }
-//
-//                            });
-//
-//                }
-//
-//          });
         }
         return v;
     }
