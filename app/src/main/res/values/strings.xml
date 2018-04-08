@@ -3,5 +3,5 @@
     <string name="name">Name: </string>
     <string name="description">Enter a description: </string>
     <string name="ingredients">List the ingredients below: </string>
-    <string name="website">Add a website: </string>
+    <string name="website">Add a website: (Optional)</string>
 </resources>

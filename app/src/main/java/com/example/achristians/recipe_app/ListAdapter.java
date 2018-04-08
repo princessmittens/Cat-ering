@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RatingBar;
@@ -19,6 +20,8 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 
 public class ListAdapter extends ArrayAdapter<Recipes> {
@@ -52,45 +55,47 @@ public class ListAdapter extends ArrayAdapter<Recipes> {
         if (listRecipe.get(position) != null) {
             TextView name = v.findViewById(R.id.name);
             //         TextView tvValue = v.findViewById(R.id.tvValue);
-            Button edit = v.findViewById(R.id.edit);
-            Button delete = v.findViewById(R.id.delete);
+//            Button edit = v.findViewById(R.id.edit);
+//             Button delete = v.findViewById(R.id.delete);
             nameInLV = i.getName();
             name.setText(nameInLV);
             number = position;
 
 
-            delete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    dref.addListenerForSingleValueEvent(
-                            new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    for (DataSnapshot dsp : dataSnapshot.getChildren()) {
-                                        // dsp.getValue();
-                                        String nameFromDB = dsp.getKey();
-                                        if (nameFromDB.equals(nameInLV)) {
-                                            dsp.getRef().removeValue();
-                                            System.out.println("deleting" + nameFromDB);
-//                                            Intent edit = new Intent(getActivity(), MainActivity.class);
-//                                            startActivity(edit);
-                                        //  adapter.clear();
-                                            listRecipe.remove(number);
-                                        notifyDataSetChanged();
-                                        }
-                                    }
 
-                                }
-
-                                @Override
-                                public void onCancelled(DatabaseError databaseError) {
-
-                                }
-
-                            });
-                }
-
-          });
+//            delete.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    dref.addListenerForSingleValueEvent(
+//                            new ValueEventListener() {
+//                                @Override
+//                                public void onDataChange(DataSnapshot dataSnapshot) {
+//                                    for (DataSnapshot dsp : dataSnapshot.getChildren()) {
+//                                        // dsp.getValue();
+//                                        String nameFromDB = dsp.getKey();
+//                                        if (nameFromDB.equals(nameInLV)) {
+//                                            dsp.getRef().removeValue();
+//                                            System.out.println("deleting" + nameFromDB);
+////                                            Intent edit = new Intent(getActivity(), MainActivity.class);
+////                                            startActivity(edit);
+//                                        //  adapter.clear();
+//                                            listRecipe.remove(number);
+//                                        notifyDataSetChanged();
+//                                        }
+//                                    }
+//
+//                                }
+//
+//                                @Override
+//                                public void onCancelled(DatabaseError databaseError) {
+//
+//                                }
+//
+//                            });
+//
+//                }
+//
+//          });
         }
         return v;
     }

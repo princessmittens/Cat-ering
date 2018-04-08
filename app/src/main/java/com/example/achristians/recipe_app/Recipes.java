@@ -1,11 +1,13 @@
 package com.example.achristians.recipe_app;
 
+import android.os.Parcelable;
 import android.widget.RatingBar;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-class Recipes {
+class Recipes implements Serializable {
     ArrayList recipesList = new ArrayList();
  //   String name;
 //    RatingBar ratingStar;
@@ -34,7 +36,17 @@ class Recipes {
         return list.get(0);
     }
 
-//    public void deleteRecipe(Recipes name) {
+    public String getDescription() {
+        return list.get(1);
+    }
+    public String getIng() {
+        return list.get(2);
+    }
+
+    public String getURL() {
+        return list.get(3);
+    }
+    //    public void deleteRecipe(Recipes name) {
 //         list.get(0);
 //    }
     public void setList(ArrayList<String> list) {

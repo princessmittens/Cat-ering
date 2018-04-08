@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.achristians.asgn4.R;
 import com.google.firebase.database.DatabaseReference;
@@ -26,7 +28,9 @@ public class EditScreen extends AppCompatActivity {
     private Button save;
     private RatingBar editRB;
     private String date = "25 Jan 1987";
-
+    boolean editRecipe = false;
+    TextView editName;
+    Recipes savedRecipe;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +44,23 @@ public class EditScreen extends AppCompatActivity {
         url = findViewById(R.id.url);
         save = findViewById(R.id.save);
         editRB = findViewById(R.id.editRB);
+        editName = findViewById(R.id.editName);
+
+        Intent i= getIntent();
+      Bundle bundle = i.getExtras();
+        // https://stackoverflow.com/questions/5265913/how-to-use-putextra-and-getextra-for-string-data
+        if(bundle!=null) {
+            savedRecipe = (Recipes) bundle.getSerializable("key");
+            name.setText(savedRecipe.getName());
+            description.setText(savedRecipe.getDescription());
+            ingredients.setText(savedRecipe.getIng());
+            url.setText(savedRecipe.getURL());
+            editRecipe = true;
+            name.setVisibility(View.GONE);
+            editName.setVisibility(View.VISIBLE);
+            editName.setText(savedRecipe.getName());
+
+        }
 
 //        editRB.setOnRatingBarChangeListener(new View.OnRatingBarChangeListener() {
 //            @Override
@@ -50,20 +71,31 @@ public class EditScreen extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<String> list = new ArrayList<>();
-                // add all data from edit text
-                list.add(name.getText().toString());
-                list.add(description.getText().toString());
-                list.add(ingredients.getText().toString());
-                list.add(url.getText().toString());
-                //list.add(editRB.getRating().toString());
+                if (!((name.getText().toString().equals("")) || (description.getText().toString().equals(""))
+                        || (ingredients.getText().toString().equals("")))) {
+                    ArrayList<String> list = new ArrayList<>();
+                    // add all data from edit text
+                    list.add(name.getText().toString());
+                    list.add(description.getText().toString());
+                    list.add(ingredients.getText().toString());
+                    list.add(url.getText().toString());
+                    //list.add(editRB.getRating().toString());
 
-                mDatabase = FirebaseDatabase.getInstance().getReference();
-                Recipes recipe = new Recipes(list);
-                mDatabase.child(name.getText().toString()).setValue(recipe);
+                    mDatabase = FirebaseDatabase.getInstance().getReference();
 
-                Intent i = new Intent(EditScreen.this, MainActivity.class);
-                startActivity(i);
+                    Recipes recipe = new Recipes(list);
+                    mDatabase.child(name.getText().toString()).setValue(recipe);
+
+                    Intent i = new Intent(EditScreen.this, MainActivity.class);
+                    startActivity(i);
+                } else {
+                    Toast.makeText(getApplicationContext(),
+                            "Name/Description or Ingredients cannot be empty, please enter" +
+                                    " some text!" +
+                                    "" , Toast.LENGTH_LONG)
+                            .show();
+
+                }
             }
             });
 

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.achristians.asgn4.com.example.achristians.recipe_app.EditScreen">
+    tools:context="com.example.achristians.recipe_app.EditScreen">
 
     <TextView
         android:id="@+id/lblName"
@@ -23,6 +23,15 @@
         android:layout_marginTop="5sp"
         android:layout_marginBottom="5sp"
         android:inputType="textPersonName"
+        android:labelFor="@+id/name"
+        android:layout_margin="10sp"/>
+    <TextView
+        android:id="@+id/editName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp"
         android:labelFor="@+id/name"
         android:layout_margin="10sp"/>
 
