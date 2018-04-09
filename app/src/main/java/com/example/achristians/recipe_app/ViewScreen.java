@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class ViewScreen extends AppCompatActivity {
 
     TextView viewName, viewDescription, viewIngredients, viewUrl;
- //   RatingBar viewRB;
+     RatingBar viewRB;
     Button editButton;
     Recipes savedRecipe;
 
@@ -30,8 +30,7 @@ public class ViewScreen extends AppCompatActivity {
         viewIngredients = findViewById(R.id.viewIngredients);
         viewUrl = findViewById(R.id.viewUrl);
        editButton = findViewById(R.id.editButton);
-
-     //   viewRB = findViewById(R.id.viewRB);
+        viewRB = findViewById(R.id.viewRB);
 
         Intent i= getIntent();
         Bundle bundle = i.getExtras();
@@ -42,7 +41,8 @@ public class ViewScreen extends AppCompatActivity {
             viewIngredients.setText(savedRecipe.getDescription());
             viewDescription.setText(savedRecipe.getIng());
             viewUrl.setText(savedRecipe.getURL());
-            // viewRB = true;
+            viewRB.setRating(Float.parseFloat(savedRecipe.getRating()));
+            viewRB.setIsIndicator(true);
         }
 
         editButton.setOnClickListener(new View.OnClickListener() {

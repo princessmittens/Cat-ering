@@ -26,11 +26,11 @@ import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class ListAdapter extends ArrayAdapter<Recipes> {
     private ArrayList<Recipes> listRecipe;
-    FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
-    DatabaseReference dref = mFirebaseDatabase.getReference();
-    String nameInLV;
-    int number;
+//    FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
+//    DatabaseReference dref = mFirebaseDatabase.getReference();
     private ListAdapter adapter;
+    TextView name;
+    RatingBar listRB;
 
     public ListAdapter(Context context, int text, ArrayList<Recipes> listRecipe) {
         super(context, text, listRecipe);
@@ -53,14 +53,12 @@ public class ListAdapter extends ArrayAdapter<Recipes> {
 
         Recipes i = listRecipe.get(position);
         if (listRecipe.get(position) != null) {
-            TextView name = v.findViewById(R.id.name);
-            //         TextView tvValue = v.findViewById(R.id.tvValue);
-//            Button edit = v.findViewById(R.id.edit);
-//             Button delete = v.findViewById(R.id.delete);
-            nameInLV = i.getName();
-            name.setText(nameInLV);
-            number = position;
+            name = v.findViewById(R.id.name);
+            listRB = v.findViewById(R.id.listRating);
 
+            name.setText(i.getName());
+            listRB.setRating(Float.parseFloat(i.getRating()));
+            listRB.setIsIndicator(true);
         }
         return v;
     }

@@ -50,6 +50,7 @@ public class EditScreen extends AppCompatActivity {
         editName = findViewById(R.id.editName);
         delete = findViewById(R.id.delete);
 
+
         Intent i= getIntent();
       Bundle bundle = i.getExtras();
         // https://stackoverflow.com/questions/5265913/how-to-use-putextra-and-getextra-for-string-data
@@ -63,7 +64,7 @@ public class EditScreen extends AppCompatActivity {
             name.setVisibility(View.GONE);
             editName.setVisibility(View.VISIBLE);
             editName.setText(savedRecipe.getName());
-
+            editRB.setRating(Float.parseFloat(savedRecipe.getRating()));
         }
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -123,6 +124,7 @@ public class EditScreen extends AppCompatActivity {
                     list.add(description.getText().toString());
                     list.add(ingredients.getText().toString());
                     list.add(url.getText().toString());
+                    list.add(Double.toString(editRB.getRating()));
 
 
                     Recipes recipe = new Recipes(list);
