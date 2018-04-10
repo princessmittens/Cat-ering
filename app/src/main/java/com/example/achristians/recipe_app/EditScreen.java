@@ -9,25 +9,18 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.achristians.asgn4.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 
 public class EditScreen extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
-
-    //    DatabaseReference ref = database.getReference("server/saving-data/fireblog");
-    private EditText name, ingredients, description, url;
+    private EditText name, ingredients, description, url, instructions;
     private Button save, delete;
     private RatingBar editRB;
     private String date = "25 Jan 1987";
@@ -38,7 +31,6 @@ public class EditScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-    //   https://stackoverflow.com/questions/5637382/referencing-a-view-in-another-xml-file
         setContentView(R.layout.edit_screen);
 
         name = findViewById(R.id.name);
@@ -48,103 +40,130 @@ public class EditScreen extends AppCompatActivity {
         save = findViewById(R.id.save);
         editRB = findViewById(R.id.editRB);
         editName = findViewById(R.id.editName);
+        instructions = findViewById(R.id.instructions);
         delete = findViewById(R.id.delete);
 
+        /**
+         * Get the intent and retrieve data. If data is present in the bundle,
+         * the user would like to edit a recipe.
+         * In that case, autofill the edittext fields with the previous saved information
+         * so the user can update their information.
+         * https://stackoverflow.com/questions/5265913/how-to-use-putextra-and-getextra-for-string-data
+         */
+        Intent i = getIntent();
+        Bundle bundle = i.getExtras();
 
-        Intent i= getIntent();
-      Bundle bundle = i.getExtras();
-        // https://stackoverflow.com/questions/5265913/how-to-use-putextra-and-getextra-for-string-data
-        if(bundle!=null) {
+        if (bundle != null) {
+            editRecipe = true;
             savedRecipe = (Recipes) bundle.getSerializable("key");
             name.setText(savedRecipe.getName());
             description.setText(savedRecipe.getDescription());
             ingredients.setText(savedRecipe.getIng());
+            instructions.setText(savedRecipe.getInstructions());
             url.setText(savedRecipe.getURL());
-            editRecipe = true;
             name.setVisibility(View.GONE);
             editName.setVisibility(View.VISIBLE);
             editName.setText(savedRecipe.getName());
             editRB.setRating(Float.parseFloat(savedRecipe.getRating()));
         }
 
+        // Declare Firebase database and get the reference location
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        if(editRecipe == true) {
+
+        /**
+         * If user is editting a recipe, show the delete option. If delete clicked, then search
+         * the Firebase Database for that entry and remove it, then navigate back to list view screen
+         * and update user on status.
+         */
+        if (editRecipe == true) {
             delete.setVisibility(View.VISIBLE);
-                       delete.setOnClickListener(new View.OnClickListener() {
-                           @Override
-                           public void onClick(View view) {
-                               mDatabase.addListenerForSingleValueEvent(
-                                       new ValueEventListener() {
-                                           @Override
-                                           public void onDataChange(DataSnapshot dataSnapshot) {
-                                               for (DataSnapshot dsp : dataSnapshot.getChildren()) {
-                                                   // dsp.getValue();
-                                                   String nameFromDB = dsp.getKey();
-                                                   if (nameFromDB.equals(savedRecipe.getName())) {
-                                                       dsp.getRef().removeValue();
-                                                       System.out.println("deleting" + nameFromDB);
-                                                       Toast.makeText(getApplicationContext(),
-                                                                       "Deleting entry"
-                                                               , Toast.LENGTH_LONG)
-                                                               .show();
-                                                       Intent i = new Intent(EditScreen.this, MainActivity.class);
-                                                       startActivity(i);
-                                                   }
-                                               }
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mDatabase.addListenerForSingleValueEvent(
+                            new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot dsp : dataSnapshot.getChildren()) {
+                                        // dsp.getValue();
+                                        String nameFromDB = dsp.getKey();
+                                        if (nameFromDB.equals(savedRecipe.getName())) {
+                                            dsp.getRef().removeValue();
+                                            System.out.println("deleting" + nameFromDB);
+                                            Toast.makeText(getApplicationContext(),
+                                                    "Deleting entry."
+                                                    , Toast.LENGTH_LONG)
+                                                    .show();
+                                            Intent i = new Intent(EditScreen.this, MainActivity.class);
+                                            startActivity(i);
+                                        }
+                                    }
 
-                                           }
+                                }
 
-                                           @Override
-                                           public void onCancelled(DatabaseError databaseError) {
-                                           }
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+                                    Toast.makeText(getApplicationContext(),
+                                            "Unable to delete entry."
+                                            , Toast.LENGTH_LONG)
+                                            .show();
+                                }
 
-                                       });
-                           }
+                            });
+                }
 
-        });
+            });
 
         } else {
+            // Don't show delete button if the user is creating a new recipe
             delete.setVisibility(View.GONE);
         }
 
-//        editRB.setOnRatingBarChangeListener(new View.OnRatingBarChangeListener() {
-//            @Override
-//            public void onRatingChanged(RatingBar ratingBar, float rating){
-//
-//            }
-//            });
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!((name.getText().toString().equals("")) || (description.getText().toString().equals(""))
-                        || (ingredients.getText().toString().equals("")))) {
+                if (!((name.getText().toString().equals(""))
+                        || (description.getText().toString().equals(""))
+                        || (ingredients.getText().toString().equals(""))
+                        || (instructions.getText().toString().equals("")))) {
                     ArrayList<String> list = new ArrayList<>();
-                    // add all data from edit text
+
+                    // Extract all the data from the EditTexts in 'edit_screen.xml and add to a list'
                     list.add(name.getText().toString());
                     list.add(description.getText().toString());
                     list.add(ingredients.getText().toString());
                     list.add(url.getText().toString());
                     list.add(Double.toString(editRB.getRating()));
+                    list.add(instructions.getText().toString());
 
-
+                    //Create an object and send that object to the Firebase database to be saved
                     Recipes recipe = new Recipes(list);
                     mDatabase.child(name.getText().toString()).setValue(recipe);
-                    Toast.makeText(getApplicationContext(),
-                            "Updating entry"
-                            , Toast.LENGTH_LONG)
-                            .show();
+
+                    //Update user on status
+                    if (editRecipe == true) {
+                        Toast.makeText(getApplicationContext(),
+                                "Updating entry."
+                                , Toast.LENGTH_LONG)
+                                .show();
+                    } else {
+                        Toast.makeText(getApplicationContext(),
+                                "Creating recipe."
+                                , Toast.LENGTH_LONG)
+                                .show();
+                    }
                     Intent i = new Intent(EditScreen.this, MainActivity.class);
                     startActivity(i);
                 } else {
                     Toast.makeText(getApplicationContext(),
                             "Name/Description or Ingredients cannot be empty, please enter" +
                                     " some text!" +
-                                    "" , Toast.LENGTH_LONG)
+                                    "", Toast.LENGTH_LONG)
                             .show();
 
                 }
             }
-            });
+        });
 
     }
 }

@@ -15,36 +15,38 @@ import java.util.ArrayList;
 
 public class ViewScreen extends AppCompatActivity {
 
-    TextView viewName, viewDescription, viewIngredients, viewUrl;
-     RatingBar viewRB;
+    TextView viewName, viewDescription, viewIngredients, viewUrl, viewInstructions;
+    RatingBar viewRB;
     Button editButton;
     Recipes savedRecipe;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_screen);
-        // from other screen
 
         viewName = findViewById(R.id.viewName);
         viewDescription = findViewById(R.id.viewDescription);
         viewIngredients = findViewById(R.id.viewIngredients);
         viewUrl = findViewById(R.id.viewUrl);
-       editButton = findViewById(R.id.editButton);
+        editButton = findViewById(R.id.editButton);
+        viewInstructions = findViewById(R.id.viewInstructions);
         viewRB = findViewById(R.id.viewRB);
 
-        Intent i= getIntent();
+        // Gets recipe data from MainActivity and sets it to the textviews in view_screen.xml
+        Intent i = getIntent();
         Bundle bundle = i.getExtras();
-        // https://stackoverflow.com/questions/5265913/how-to-use-putextra-and-getextra-for-string-data
-        if(bundle!=null) {
+        if (bundle != null) {
             savedRecipe = (Recipes) bundle.getSerializable("key");
             viewName.setText(savedRecipe.getName());
-            viewIngredients.setText(savedRecipe.getDescription());
-            viewDescription.setText(savedRecipe.getIng());
+            viewIngredients.setText(savedRecipe.getIng());
+            viewInstructions.setText(savedRecipe.getInstructions());
+            viewDescription.setText(savedRecipe.getDescription());
             viewUrl.setText(savedRecipe.getURL());
             viewRB.setRating(Float.parseFloat(savedRecipe.getRating()));
             viewRB.setIsIndicator(true);
         }
 
+        // Takes user to EditScreen as well as sends the current recipe to EditScreen
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

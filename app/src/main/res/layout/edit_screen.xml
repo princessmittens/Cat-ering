@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<LinearLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,6 +21,7 @@
         />
     <EditText
         android:id="@+id/name"
+        android:hint="E.g. Mitten's Famous Spinach Cobbler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -30,11 +35,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:textSize="15sp"
         android:layout_marginTop="5sp"
         android:layout_marginBottom="5sp"
         android:labelFor="@+id/name"
         android:layout_margin="10sp"/>
-
     <TextView
         android:id="@+id/lblDescription"
         android:layout_marginTop="30sp"
@@ -46,6 +51,7 @@
         />
     <EditText
         android:id="@+id/description"
+        android:hint="E.g. Go-to recipe for all cats!"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -71,9 +77,29 @@
         android:layout_marginTop="5sp"
         android:layout_marginBottom="5sp"
         android:labelFor="@+id/ingredients"
-        android:inputType="textPersonName"
+        android:hint="Chicken, eggs, pepper..."
+        android:inputType="textMultiLine"
         android:layout_margin="10sp"/>
-
+    <TextView
+        android:id="@+id/lblInstructions"
+        android:layout_marginTop="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/instructions"
+        android:textSize="15sp"
+        android:layout_marginStart="10sp"
+        />
+    <EditText
+        android:id="@+id/instructions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp"
+        android:labelFor="@+id/ingredients"
+        android:hint="1. Pet your cats, 2. Mix in eggs..."
+        android:inputType="textMultiLine"
+        android:layout_margin="10sp"/>
     <TextView
         android:id="@+id/lblUrl"
         android:layout_marginTop="30sp"
@@ -91,9 +117,19 @@
         android:layout_marginTop="5sp"
         android:layout_marginBottom="5sp"
         android:labelFor="@+id/url"
+        android:hint="E.g. https://www.CookingWithMittens.com"
         android:inputType="textUri"
         android:layout_margin="10sp"/>
-
+    <TextView
+        android:id="@+id/Rating"
+        android:layout_marginTop="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:text="@string/ratingBar"
+        android:textSize="15sp"
+        android:layout_marginStart="10sp"
+        />
     <RatingBar
         android:id="@+id/editRB"
         android:layout_width="wrap_content"
@@ -108,7 +144,6 @@
         android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_centerInParent = "true"
-
         >
     <Button
         android:id="@+id/delete"
@@ -127,4 +162,4 @@
 
         />
     </LinearLayout>
-</LinearLayout>
+</LinearLayout></ScrollView>

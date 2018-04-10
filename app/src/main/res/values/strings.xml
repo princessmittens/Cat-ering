@@ -4,4 +4,12 @@
     <string name="description">Enter a description: </string>
     <string name="ingredients">List the ingredients below: </string>
     <string name="website">Add a website: (Optional)</string>
+    <string name="ratingBar">Enter a rating: (Optional)</string>
+    <string name="instructions">Enter the instructions:</string>
+    <string name="viewDes">Description:</string>
+    <string name="viewIng">Ingredients:</string>
+    <string name="viewWebsite">Website:</string>
+    <string name="viewRatingBar">Rating:</string>
+    <string name="viewInst">Instructions:</string>
+
 </resources>

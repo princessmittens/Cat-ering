@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<LinearLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,20 +11,13 @@
     tools:context="com.example.achristians.recipe_app.ViewScreen">
 
     <TextView
-        android:id="@+id/lblName"
-        android:layout_marginTop="30sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/name"
-        android:textSize="15sp"
-        android:layout_marginStart="10sp"
-        />
-    <TextView
         android:id="@+id/viewName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:layout_marginTop="5sp"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
         android:layout_marginBottom="5sp"
         android:layout_margin="10sp"/>
 
@@ -29,7 +26,7 @@
         android:layout_marginTop="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/description"
+        android:text="@string/viewDes"
         android:textSize="15sp"
         android:layout_marginStart="10sp"
         />
@@ -46,7 +43,7 @@
         android:layout_marginTop="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ingredients"
+        android:text="@string/viewIng"
         android:textSize="15sp"
         android:layout_marginStart="10sp"
         />
@@ -60,16 +57,16 @@
         android:layout_margin="10sp"/>
 
     <TextView
-        android:id="@+id/lblUrl"
+        android:id="@+id/lblInstructions"
         android:layout_marginTop="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/website"
+        android:text="@string/viewInst"
         android:textSize="15sp"
         android:layout_marginStart="10sp"
         />
     <TextView
-        android:id="@+id/viewUrl"
+        android:id="@+id/viewInstructions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -77,6 +74,36 @@
         android:layout_marginBottom="5sp"
         android:layout_margin="10sp"/>
 
+    <TextView
+        android:id="@+id/lblUrl"
+        android:layout_marginTop="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/viewWebsite"
+        android:textSize="15sp"
+        android:layout_marginStart="10sp"
+        />
+    <!--http://saket.me/better-url-handler-textview-android/-->
+    <TextView
+        android:id="@+id/viewUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp"
+        android:autoLink="web"
+        android:layout_margin="10sp"/>
+
+    <TextView
+        android:id="@+id/lblRatingBar"
+        android:layout_marginTop="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/viewRatingBar"
+        android:paddingBottom="5dp"
+        android:textSize="15sp"
+        android:layout_marginStart="10sp"
+        />
     <RatingBar
         android:id="@+id/viewRB"
         android:layout_width="wrap_content"
@@ -91,3 +118,4 @@ android:id="@+id/editButton"
         android:layout_weight="1">
     </Button>
 </LinearLayout>
+</ScrollView>
