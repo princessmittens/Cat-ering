@@ -79,9 +79,9 @@ public class MainActivity extends AppCompatActivity {
         //Initializes Firebase for this application
         FirebaseApp.initializeApp(this);
 
+        // Retrieves information from Firebase database and populates ListView
         // https://stackoverflow.com/questions/42648147/populating-a-listview-with-firebase-data-in-android
         // https://stackoverflow.com/questions/38965731/how-to-get-all-childs-data-in-firebase-database
-        // Retrieves information from Firebase database and populates ListView
         dref.addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
@@ -108,12 +108,12 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    //Search bar function that gets the text from the menu bar
     // https://www.youtube.com/watch?v=hoEY2n8CCSk
-    //Search bar function
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_search, menu);
-        MenuItem item = menu.findItem(R.id.menuSearch);
+        MenuItem item = menu.findItem(R.id.mS);
         SearchView searchView = (SearchView) item.getActionView();
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

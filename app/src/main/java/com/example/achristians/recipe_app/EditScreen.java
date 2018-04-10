@@ -30,9 +30,9 @@ public class EditScreen extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.edit_screen);
 
+        // Assign variables to buttons/text-views
         name = findViewById(R.id.name);
         ingredients = findViewById(R.id.ingredients);
         description = findViewById(R.id.description);
@@ -76,6 +76,7 @@ public class EditScreen extends AppCompatActivity {
          * and update user on status.
          */
         if (editRecipe == true) {
+            //Show delete button
             delete.setVisibility(View.VISIBLE);
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -84,9 +85,10 @@ public class EditScreen extends AppCompatActivity {
                             new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
+                                    // When clicked, search Firebase Database for the name
                                     for (DataSnapshot dsp : dataSnapshot.getChildren()) {
-                                        // dsp.getValue();
                                         String nameFromDB = dsp.getKey();
+                                        // if the name is present, delete it
                                         if (nameFromDB.equals(savedRecipe.getName())) {
                                             dsp.getRef().removeValue();
                                             System.out.println("deleting" + nameFromDB);
@@ -103,6 +105,7 @@ public class EditScreen extends AppCompatActivity {
 
                                 @Override
                                 public void onCancelled(DatabaseError databaseError) {
+                                    // Update user on status
                                     Toast.makeText(getApplicationContext(),
                                             "Unable to delete entry."
                                             , Toast.LENGTH_LONG)
@@ -119,16 +122,18 @@ public class EditScreen extends AppCompatActivity {
             delete.setVisibility(View.GONE);
         }
 
+        //When user clicks save button, send the data to firebase
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Make sure the name, description, instructions, ingredient fields are all populated
                 if (!((name.getText().toString().equals(""))
                         || (description.getText().toString().equals(""))
                         || (ingredients.getText().toString().equals(""))
                         || (instructions.getText().toString().equals("")))) {
-                    ArrayList<String> list = new ArrayList<>();
 
-                    // Extract all the data from the EditTexts in 'edit_screen.xml and add to a list'
+                    // Extract all the data from the EditTexts in 'edit_screen.xml and add to a list
+                    ArrayList<String> list = new ArrayList<>();
                     list.add(name.getText().toString());
                     list.add(description.getText().toString());
                     list.add(ingredients.getText().toString());
@@ -152,9 +157,12 @@ public class EditScreen extends AppCompatActivity {
                                 , Toast.LENGTH_LONG)
                                 .show();
                     }
+
+                    // Navigate back to list-view screen
                     Intent i = new Intent(EditScreen.this, MainActivity.class);
                     startActivity(i);
                 } else {
+                    // Update user on status
                     Toast.makeText(getApplicationContext(),
                             "Name/Description or Ingredients cannot be empty, please enter" +
                                     " some text!" +
