@@ -7,14 +7,18 @@ The application does basic CRUD operations through the Firebase Database. A site
    <img  src="./images/sitemap.png"  width="40%"  height="40%" align="center"/>
 
 <h3> Screenshots </h3>
+<div class="row">
 <figure>
-   <img  src="./images/list-view.png"  width="40%"  height="40%" align="left"/>
-   <img src="./images/create.png" width="40%" height="40%" align="right"/><br>
+   <img  src="./images/list-view.png"  width="40%"  height="40%" />
+   <img src="./images/create.png" width="40%" height="40%"/><br>
    <figcaption> Viewing existing recipes (left) and creating a new recipe (right).</figcaption> <br>
 </figure>
+</div>
 <br><br>
+<div class="row">
 <figure>
-   <img  src="./images/edit.png"  width="40%"  height="40%" align="left"/>
-   <img  src="./images/view_rec.png"  width="40%"  height="40%" align="right"/><br>
+   <img  src="./images/edit.png"  width="40%"  height="40%"/>
+   <img  src="./images/view_rec.png"  width="40%"  height="40%"/><br>
 <figcaption> Editing/updating an existing recipe (left) and viewing an existing recipe (right).</figcaption>
 </figure>
+</div>
