@@ -5,9 +5,7 @@
 <br><br>
 
 <h3> Screenshots </h3>
-
-View a recipe and Create a Recipe
-
+<div class="attempt-left">
 <figure>
 
    <img  src="./images/list-view.png"  width="40%"  height="40%"/>
@@ -15,7 +13,8 @@ View a recipe and Create a Recipe
    <figcaption>View recipes</figcaption>
 
 </figure>
-
+</div>
+<div class="attempt-right">
 <figure>
 
    <img src="./images/create.png" width="40%" height="40%"/>
@@ -23,6 +22,7 @@ View a recipe and Create a Recipe
    <figcaption>Create a recipe</figcaption>
 
 </figure>
+</div>
 
 <figure>
 
@@ -34,7 +34,7 @@ View a recipe and Create a Recipe
 
 <figure>
 
-   <img  src="./images/view.png"  width="40%"  height="40%"/>
+   <img  src="./images/view_rec.png"  width="40%"  height="40%"/>
 
    <figcaption>View an existing recipe.</figcaption>
 
