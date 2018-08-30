@@ -4,11 +4,13 @@
 
 <h3> Structure </h3>
 The application does basic CRUD operations through the Firebase Database. An outline of the application can be seen below (Fig. 1) 
-   <img  src="./images/sitemap.PNG"  width="60%"  height="60%" class="center"/>
+<div style="display: flex; justify-content: center;">
+   <img  src="./images/sitemap.PNG"  width="60%"  height="60%"/>
    <b>Figure 1:</b> Basic structure of the application navigation. 
+   </div>
 
 <h3> Screenshots </h3>
-<div class="center">
+<div style="display: flex; justify-content: center;">
 <figure>
    <img  src="./images/list-view.png"  width="40%"  height="40%"/>
    <img src="./images/create.png" width="40%" height="40%"/><br>
@@ -16,7 +18,7 @@ The application does basic CRUD operations through the Firebase Database. An out
 </figure>
 </div>
 <br><br>
-<div class="center">
+<div style="display: flex; justify-content: center;">
 <figure>
    <img  src="./images/edit.png"  width="40%"  height="40%"/>
    <img  src="./images/view_rec.png"  width="40%"  height="40%"/><br>
