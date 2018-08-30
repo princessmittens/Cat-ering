@@ -4,31 +4,11 @@
 
 <h3> Screenshots </h3>
 <div class="center"> 
-<figure>
-
    <img  src="./images/list-view.png"  width="40%"  height="40%"/>
-
-   <figcaption>View recipes</figcaption>
-
-</figure>
-<figure>
-
    <img src="./images/create.png" width="40%" height="40%"/>
-
-   <figcaption>Create a recipe</figcaption>
-
-</figure>
-<figure>
-
+</div> 
+<div class="center"> 
    <img  src="./images/edit.png"  width="40%"  height="40%"/>
-
-   <figcaption>Edit/update an existing recipe.</figcaption>
-
-</figure>
-<figure>
-
    <img  src="./images/view_rec.png"  width="40%"  height="40%"/>
+</div>
 
-   <figcaption>View an existing recipe.</figcaption>
-
-</figure>
