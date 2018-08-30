@@ -4,21 +4,21 @@
 
 <h3> Structure </h3>
 The application does basic CRUD operations through the Firebase Database. A sitemap is provided below: 
-   <img  src="./images/sitemap.PNG"  width="70%"  height="70%" align="center"/>
+   <img  src="./images/sitemap.PNG"  width="60%"  height="60%" align="middle"/>
 
 <h3> Screenshots </h3>
 <div class="center">
 <figure>
-   <img  src="./images/list-view.png"  width="40%"  height="40%" />
-   <img src="./images/create.png" width="40%" height="40%"/><br>
+   <img  src="./images/list-view.png"  width="40%"  height="40%" align="middle"/>
+   <img src="./images/create.png" width="40%" height="40%" align="middle"/><br>
    <figcaption> Viewing existing recipes (left) and creating a new recipe (right).</figcaption> <br>
 </figure>
 </div>
 <br><br>
 <div class="center">
 <figure>
-   <img  src="./images/edit.png"  width="40%"  height="40%"/>
-   <img  src="./images/view_rec.png"  width="40%"  height="40%"/><br>
+   <img  src="./images/edit.png"  width="40%"  height="40%" align="middle"/>
+   <img  src="./images/view_rec.png"  width="40%"  height="40%" align="middle"/><br>
 <figcaption> Editing/updating an existing recipe (left) and viewing an existing recipe (right).</figcaption>
 </figure>
 </div>
