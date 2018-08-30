@@ -10,18 +10,18 @@ The application does basic CRUD operations through the Firebase Database. An out
 </p>
 
 <h3> Screenshots </h3>
-<p align="center">
+<div style="display: flex; justify-content: center;">
 <figure>
    <img  src="./images/list-view.png"  width="40%"  height="40%"/>
    <img src="./images/create.png" width="40%" height="40%"/><br>
    <figcaption><b>Figure 2:</b> Viewing existing recipes (left) and creating a new recipe (right).</figcaption> <br>
 </figure>
-</p>
+</div>
 <br><br>
-<p align="center">
+<div style="display: flex; justify-content: center;">
 <figure>
    <img  src="./images/edit.png"  width="40%"  height="40%"/>
    <img  src="./images/view_rec.png"  width="40%"  height="40%"/><br>
 <figcaption><b>Figure 3:</b> Editing/updating an existing recipe (left) and viewing an existing recipe (right).</figcaption>
 </figure>
-</p>
+</div>
