@@ -4,7 +4,7 @@
 <br><br>
 <div class="row">
   <figure>
-    <img src="./images/list-view.png" width="40%" height="40%" align="left"/> View Recipes 
+    <img src="./images/list-view.png" width="40%" height="40%" align="left"/> 
      <figcaption> View Recipes </figcaption>
   </figure>
   <figure>
