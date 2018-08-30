@@ -11,10 +11,10 @@ The application does basic CRUD operations through the Firebase Database. A site
    <img  src="./images/list-view.png"  width="40%"  height="40%" align="left"/>
    <img src="./images/create.png" width="40%" height="40%" align="right"/>
 </div> 
-<br> Viewing existing recipes (left) and creating a new recipe (right).<br>
+<br><br> Viewing existing recipes (left) and creating a new recipe (right).<br>
 <div class="row"> 
    <img  src="./images/edit.png"  width="40%"  height="40%" align="left"/>
    <img  src="./images/view_rec.png"  width="40%"  height="40%" align="right"/>
 </div>
-<br> Editing/updating an existing recipe (left) and viewing an existing recipe (right).<br>
+<br><br> Editing/updating an existing recipe (left) and viewing an existing recipe (right).<br>
 
