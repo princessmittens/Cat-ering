@@ -3,12 +3,9 @@
 
 <br><br>
 <div class="row">
-  <figure>
     <img src="./images/list-view.png" width="40%" height="40%" align="left"/> 
-     <figcaption> View Recipes </figcaption>
-  </figure>
-  <figure>
     <img src="./images/create.png" width="40%" height="40%" align="right"/> 
-    <figcaption> Create </figcaption>
-  </figure>
-</div>
+</div> <br>
+<p style="text-align:left;"> View Recipes
+<span style="float:right;">Create a Recipe</span>
+</p>
