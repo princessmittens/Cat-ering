@@ -4,7 +4,7 @@
 
 <h3> Structure </h3>
 The application does basic CRUD operations through the Firebase Database. A sitemap is provided below: 
-   <img  src="./images/sitemap.png"  width="40%"  height="40%" align="center"/>
+   <img  src="./images/sitemap.PNG"  width="70%"  height="70%" align="center"/>
 
 <h3> Screenshots </h3>
 <div class="center">
