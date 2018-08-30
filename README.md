@@ -3,10 +3,12 @@
 
 <br><br>
 <div class="row">
-<img src="./images/list-view.png" width="40%" height="40%" align="left"/>
-<img src="./images/create.png" width="40%" height="40%" align="right"/>
-</div>
-<div class="row">
-<text align="left"> View Recipes </text>
-<text align="right"> Create </text>
+  <figure>
+    <img src="./images/list-view.png" width="40%" height="40%" align="left"/> View Recipes 
+     <figcaption> View Recipes </figcaption>
+  </figure>
+  <figure>
+    <img src="./images/create.png" width="40%" height="40%" align="right"/> 
+    <figcaption> Create </figcaption>
+  </figure>
 </div>
